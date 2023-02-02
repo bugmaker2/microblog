@@ -1,14 +1,79 @@
-2023-01-24 14:04:14,774 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
-2023-01-24 14:05:31,572 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
-2023-01-26 19:10:08,708 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
-2023-01-27 17:35:54,039 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
-2023-01-27 17:36:00,451 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
-2023-02-02 15:53:29,703 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
-2023-02-02 15:54:52,344 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
-2023-02-02 15:55:19,202 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
-2023-02-02 15:56:58,174 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
-2023-02-02 15:57:26,520 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
-2023-02-02 20:02:19,431 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
-2023-02-02 20:39:59,437 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
-2023-02-02 20:42:01,988 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
-2023-02-02 20:43:46,859 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
+2023-02-02 23:56:10,754 ERROR: Exception on /index [GET] [in /home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py:1458]
+Traceback (most recent call last):
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/ubuntu/microblog/app/routes.py", line 24, in index
+    next_url = url_for('index', page=posts.next_num) if posts.have_next else None
+AttributeError: 'Pagination' object has no attribute 'have_next'
+2023-02-02 23:56:13,310 ERROR: Exception on /index [GET] [in /home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py:1458]
+Traceback (most recent call last):
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/ubuntu/microblog/app/routes.py", line 24, in index
+    next_url = url_for('index', page=posts.next_num) if posts.have_next else None
+AttributeError: 'Pagination' object has no attribute 'have_next'
+2023-02-02 23:56:40,214 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
+2023-02-02 23:56:53,231 ERROR: Exception on /explore [GET] [in /home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py:1458]
+Traceback (most recent call last):
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/ubuntu/microblog/app/routes.py", line 36, in explore
+    next_url = url_for('index', page=posts.next_num) if posts.have_next else None
+AttributeError: 'Pagination' object has no attribute 'have_next'
+2023-02-02 23:57:03,617 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
+2023-02-02 23:57:05,400 ERROR: Exception on /explore [GET] [in /home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py:1458]
+Traceback (most recent call last):
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/ubuntu/microblog/app/routes.py", line 37, in explore
+    prev_url = url_for('index', page=posts.next_num) if opsts.has_prev else None
+NameError: name 'opsts' is not defined
+2023-02-02 23:57:08,487 ERROR: Exception on /explore [GET] [in /home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py:1458]
+Traceback (most recent call last):
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/ubuntu/microblog/app/routes.py", line 37, in explore
+    prev_url = url_for('index', page=posts.next_num) if opsts.has_prev else None
+NameError: name 'opsts' is not defined
+2023-02-02 23:57:24,146 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
+2023-02-02 23:58:43,862 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
