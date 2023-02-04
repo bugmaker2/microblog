@@ -1,19 +1,6 @@
-2023-01-24 14:04:14,774 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
-2023-01-24 14:05:31,572 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
-2023-01-26 19:10:08,708 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
-2023-01-27 17:35:54,039 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
-2023-01-27 17:36:00,451 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
-2023-02-02 15:53:29,703 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
-2023-02-02 15:54:52,344 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
-2023-02-02 15:55:19,202 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
-2023-02-02 15:56:58,174 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
-2023-02-02 15:57:26,520 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
-2023-02-02 20:02:19,431 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
-2023-02-02 20:39:59,437 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
-2023-02-02 20:42:01,988 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
-2023-02-02 20:43:46,859 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
-2023-02-02 22:54:52,025 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
-2023-02-02 22:55:00,524 ERROR: Exception on / [GET] [in /home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py:1458]
+2023-02-02 23:11:14,395 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
+2023-02-02 23:12:28,972 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
+2023-02-02 23:12:31,169 ERROR: Exception on /user/admin [GET] [in /home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py:1458]
 Traceback (most recent call last):
   File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2073, in wsgi_app
     response = self.full_dispatch_request()
@@ -25,26 +12,10 @@ Traceback (most recent call last):
     return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
   File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask_login/utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "/home/ubuntu/microblog/app/routes.py", line 22, in index
-    return render_template('index.html', title="Home Page", form=form, posts=posts)
-  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/templating.py", line 148, in render_template
-    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
-  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/jinja2/environment.py", line 1068, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/jinja2/environment.py", line 997, in get_template
-    return self._load_template(name, globals)
-  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/jinja2/environment.py", line 958, in _load_template
-    template = self.loader.load(self, name, self.make_globals(globals))
-  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/jinja2/loaders.py", line 137, in load
-    code = environment.compile(source, name, filename)
-  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/jinja2/environment.py", line 757, in compile
-    self.handle_exception(source=source_hint)
-  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/jinja2/environment.py", line 925, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "/home/ubuntu/microblog/app/templates/index.html", line 9, in template
-    {{ form.post.(cols=32, rows=4) }}<br>
-jinja2.exceptions.TemplateSyntaxError: expected name or number
-2023-02-02 22:55:03,834 ERROR: Exception on /index [GET] [in /home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py:1458]
+  File "/home/ubuntu/microblog/app/routes.py", line 64, in user
+    posts = Post.query.filter_by(user_id=current.id)
+NameError: name 'current' is not defined
+2023-02-02 23:12:38,397 ERROR: Exception on /user/admin [GET] [in /home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py:1458]
 Traceback (most recent call last):
   File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2073, in wsgi_app
     response = self.full_dispatch_request()
@@ -56,26 +27,28 @@ Traceback (most recent call last):
     return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
   File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask_login/utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "/home/ubuntu/microblog/app/routes.py", line 22, in index
-    return render_template('index.html', title="Home Page", form=form, posts=posts)
-  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/templating.py", line 148, in render_template
-    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
-  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/jinja2/environment.py", line 1068, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/jinja2/environment.py", line 997, in get_template
-    return self._load_template(name, globals)
-  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/jinja2/environment.py", line 958, in _load_template
-    template = self.loader.load(self, name, self.make_globals(globals))
-  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/jinja2/loaders.py", line 137, in load
-    code = environment.compile(source, name, filename)
-  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/jinja2/environment.py", line 757, in compile
-    self.handle_exception(source=source_hint)
-  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/jinja2/environment.py", line 925, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "/home/ubuntu/microblog/app/templates/index.html", line 9, in template
-    {{ form.post.(cols=32, rows=4) }}<br>
-jinja2.exceptions.TemplateSyntaxError: expected name or number
-2023-02-02 22:55:06,018 ERROR: Exception on /index [GET] [in /home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py:1458]
+  File "/home/ubuntu/microblog/app/routes.py", line 64, in user
+    posts = Post.query.filter_by(user_id=current.id)
+NameError: name 'current' is not defined
+2023-02-02 23:12:48,865 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
+2023-02-02 23:14:55,172 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
+2023-02-02 23:14:58,603 ERROR: Exception on /user/admin [GET] [in /home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py:1458]
+Traceback (most recent call last):
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1514, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1857, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+  File "/home/ubuntu/microblog/app/routes.py", line 71, in before_request
+    current_user.last_seen = datetime.utcnow("%Y")
+TypeError: utcnow() takes no arguments (1 given)
+2023-02-02 23:19:32,178 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
+2023-02-02 23:29:27,674 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
+2023-02-02 23:39:24,302 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
+2023-02-02 23:39:27,160 ERROR: Exception on /index [GET] [in /home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py:1458]
 Traceback (most recent call last):
   File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2073, in wsgi_app
     response = self.full_dispatch_request()
@@ -87,28 +60,10 @@ Traceback (most recent call last):
     return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
   File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask_login/utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "/home/ubuntu/microblog/app/routes.py", line 22, in index
-    return render_template('index.html', title="Home Page", form=form, posts=posts)
-  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/templating.py", line 148, in render_template
-    ctx.app.jinja_env.get_or_select_template(template_name_or_list),
-  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/jinja2/environment.py", line 1068, in get_or_select_template
-    return self.get_template(template_name_or_list, parent, globals)
-  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/jinja2/environment.py", line 997, in get_template
-    return self._load_template(name, globals)
-  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/jinja2/environment.py", line 958, in _load_template
-    template = self.loader.load(self, name, self.make_globals(globals))
-  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/jinja2/loaders.py", line 137, in load
-    code = environment.compile(source, name, filename)
-  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/jinja2/environment.py", line 757, in compile
-    self.handle_exception(source=source_hint)
-  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/jinja2/environment.py", line 925, in handle_exception
-    raise rewrite_traceback_stack(source=source)
-  File "/home/ubuntu/microblog/app/templates/index.html", line 9, in template
-    {{ form.post.(cols=32, rows=4) }}<br>
-jinja2.exceptions.TemplateSyntaxError: expected name or number
-2023-02-02 22:56:17,322 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
-2023-02-02 23:09:42,277 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
-2023-02-02 23:09:47,053 ERROR: Exception on /index [POST] [in /home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py:1458]
+  File "/home/ubuntu/microblog/app/routes.py", line 23, in index
+    page=page, per_page=app.config['POSTS_PER_PAGE'], error_out=False)
+KeyError: 'POSTS_PER_PAGE'
+2023-02-02 23:39:28,754 ERROR: Exception on /index [GET] [in /home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py:1458]
 Traceback (most recent call last):
   File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2073, in wsgi_app
     response = self.full_dispatch_request()
@@ -120,6 +75,54 @@ Traceback (most recent call last):
     return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
   File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask_login/utils.py", line 272, in decorated_view
     return func(*args, **kwargs)
-  File "/home/ubuntu/microblog/app/routes.py", line 16, in index
-    post = Post(body=form.post.data, author=current_user)
-NameError: name 'Post' is not defined
+  File "/home/ubuntu/microblog/app/routes.py", line 23, in index
+    page=page, per_page=app.config['POSTS_PER_PAGE'], error_out=False)
+KeyError: 'POSTS_PER_PAGE'
+2023-02-02 23:40:02,904 ERROR: Exception on /index [GET] [in /home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py:1458]
+Traceback (most recent call last):
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/ubuntu/microblog/app/routes.py", line 23, in index
+    page=page, per_page=app.config['POSTS_PER_PAGE'], error_out=False)
+KeyError: 'POSTS_PER_PAGE'
+2023-02-02 23:40:05,926 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
+2023-02-02 23:40:08,324 ERROR: Exception on /index [GET] [in /home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py:1458]
+Traceback (most recent call last):
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/ubuntu/microblog/app/routes.py", line 24, in index
+    return render_template('index.html', title="Home Page", form=form, posts=posts.item)
+AttributeError: 'Pagination' object has no attribute 'item'
+2023-02-02 23:40:09,922 ERROR: Exception on /index [GET] [in /home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py:1458]
+Traceback (most recent call last):
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/ubuntu/microblog/venv/lib/python3.6/site-packages/flask_login/utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "/home/ubuntu/microblog/app/routes.py", line 24, in index
+    return render_template('index.html', title="Home Page", form=form, posts=posts.item)
+AttributeError: 'Pagination' object has no attribute 'item'
+2023-02-02 23:40:29,421 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
+2023-02-02 23:56:04,313 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:47]
