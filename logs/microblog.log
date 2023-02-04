@@ -48,3 +48,4 @@ Traceback (most recent call last):
   File "/usr/lib/python3.6/smtplib.py", line 359, in send
     raise SMTPServerDisconnected('please run connect() first')
 smtplib.SMTPServerDisconnected: please run connect() first
+2023-02-04 17:30:39,413 INFO: Microblog startup [in /home/ubuntu/microblog/app/__init__.py:51]
